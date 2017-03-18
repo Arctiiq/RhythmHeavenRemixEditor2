@@ -15,6 +15,7 @@ import ionium.registry.ScreenRegistry
 import ionium.util.i18n.Localization
 import java.io.File
 import javax.swing.JFileChooser
+import javax.swing.JOptionPane
 import javax.swing.filechooser.FileNameExtensionFilter
 
 
@@ -117,6 +118,21 @@ class MusicScreen(m: Main) : NewUIScreen(m), InputProcessor {
 			es?.editor?.remix?.music = null
 			main.screen = ScreenRegistry.get("editor")
 		}
+
+		if (Gdx.input.isKeyJustPressed(Input.Keys.F1)){ //If we just pressed the F1 key
+            showPicker() //Load file selector
+		}
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.F2)){
+            //TODO:
+            //Do youtube downloading stuff from pasted url
+            //Set music file variable as downloaded file
+
+            var url : String = JOptionPane.showInputDialog("Paste the URL of the video you want to download")
+            debug(url)
+
+            
+        }
 	}
 
 	private fun closePicker() {
@@ -170,7 +186,7 @@ class MusicScreen(m: Main) : NewUIScreen(m), InputProcessor {
 	}
 
 	override fun show() {
-		showPicker()
+		//showPicker()
 
 		Gdx.input.inputProcessor = InputMultiplexer()
 		(Gdx.input.inputProcessor as InputMultiplexer).addProcessor(this)
