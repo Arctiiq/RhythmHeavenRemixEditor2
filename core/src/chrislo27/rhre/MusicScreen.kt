@@ -127,11 +127,11 @@ class MusicScreen(m: Main) : NewUIScreen(m), InputProcessor {
             //TODO:
             //Do youtube downloading stuff from pasted url
             //Set music file variable as downloaded file
-
+            //
             var url : String = JOptionPane.showInputDialog("Paste the URL of the video you want to download")
             debug(url)
 
-            
+
         }
 	}
 
